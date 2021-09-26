@@ -1,3 +1,8 @@
+
+var countPositive = parseInt(document.getElementById('countPositive').innerHTML);
+var countNegative = parseInt(document.getElementById('countNegative').innerHTML);
+var countNeutral = parseInt(document.getElementById('countNeutral').innerHTML);
+
 /**
  * Line chart
  */
@@ -8,7 +13,7 @@ const dataBarChart = {
     labels: labels,
     datasets: [{
         label: 'Twitter comments analysis',
-        data: [65, 124, 80],
+        data: [countPositive, countNegative, countNeutral],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(255, 159, 64, 0.2)',
@@ -48,7 +53,7 @@ const dataPieChart = {
     ],
     datasets: [{
         label: 'My First Dataset',
-        data: [300, 50, 100],
+        data: [countPositive, countNegative, countNeutral],
         backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
