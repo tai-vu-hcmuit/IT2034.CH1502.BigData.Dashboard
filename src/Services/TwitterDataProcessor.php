@@ -54,4 +54,63 @@ class TwitterDataProcessor
 
         return $result;
     }
+
+    public function parseCountCsvDataFile(string $filePath) {
+        if (!file_exists($filePath)) {
+            throw new \Exception("CSV FILE NOT FOUND");
+        }
+
+        $result = [
+            'Spark' => [
+                TwitModel::SENTIMENT_POSITIVE => 0,
+                TwitModel::SENTIMENT_NEGATIVE => 0,
+                TwitModel::SENTIMENT_NEUTRAL => 0
+            ],
+            'Textblob' => [
+                TwitModel::SENTIMENT_POSITIVE => 0,
+                TwitModel::SENTIMENT_NEGATIVE => 0,
+                TwitModel::SENTIMENT_NEUTRAL => 0
+            ],
+        ];
+
+        foreach (file($filePath) as $line) {
+
+            $line = strrev(trim($line));
+            $firstComma = mb_strpos($line, ",");
+            $secondComma = mb_strpos(substr($line, $firstComma + 1), ",");
+
+            $textblobResult = strrev(substr($line, 0, $firstComma));
+            $sparkResult = strrev(substr($line, $firstComma + 1, $secondComma));
+
+            switch ($sparkResult) {
+                case TwitModel::SENTIMENT_POSITIVE:
+                    $result['Spark'][TwitModel::SENTIMENT_POSITIVE]++;
+                    break;
+                case TwitModel::SENTIMENT_NEGATIVE:
+                    $result['Spark'][TwitModel::SENTIMENT_NEGATIVE]++;
+                    break;
+                case TwitModel::SENTIMENT_NEUTRAL:
+                    $result['Spark'][TwitModel::SENTIMENT_NEUTRAL]++;
+                    break;
+                default:
+                    break;
+            }
+
+            switch ($textblobResult) {
+                case TwitModel::SENTIMENT_POSITIVE:
+                    $result['Textblob'][TwitModel::SENTIMENT_POSITIVE]++;
+                    break;
+                case TwitModel::SENTIMENT_NEGATIVE:
+                    $result['Textblob'][TwitModel::SENTIMENT_NEGATIVE]++;
+                    break;
+                case TwitModel::SENTIMENT_NEUTRAL:
+                    $result['Textblob'][TwitModel::SENTIMENT_NEUTRAL]++;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return $result;
+    }
 }

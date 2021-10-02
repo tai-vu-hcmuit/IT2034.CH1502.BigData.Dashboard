@@ -53,11 +53,11 @@
                         <h4 class="my-0 font-weight-normal">Total comments</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">{{ countPositive + countNegative + countNeutral }}</h1>
+                        <h1 class="card-title pricing-card-title">{{ SparkCountPositive + SparkCountNegative + SparkCountNeutral }}</h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li><h3><small class="text-muted">Positive: {{ countPositive }}</small></h3></li>
-                            <li><h3><small class="text-muted">Negative: {{ countNegative }}</small></h3></li>
-                            <li><h3><small class="text-muted">Neutral: {{ countNeutral }}</small></h3></li>
+                            <li><h3><small class="text-muted">Positive: {{ SparkCountPositive }}</small></h3></li>
+                            <li><h3><small class="text-muted">Negative: {{ SparkCountNegative }}</small></h3></li>
+                            <li><h3><small class="text-muted">Neutral: {{ SparkCountNeutral }}</small></h3></li>
                         </ul>
                     </div>
                 </div>
@@ -107,7 +107,28 @@
                 </div>
             </div>
 
-            <canvas class="my-4" id="pieChart" width="900" height="380"></canvas>
+            <table class="table .table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Spark streamming</th>
+                    <th scope="col">Textblod</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div>
+                            <canvas id="pieChart1"></canvas>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <canvas id="pieChart2"></canvas>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
             <h2>Comment lists</h2>
             <div class="table-responsive">
@@ -225,9 +246,12 @@
 </div>
 
 <div style="display: none">
-    <span id="countPositive">{{ countPositive }}</span>
-    <span id="countNegative">{{ countNegative }}</span>
-    <span id="countNeutral">{{ countNeutral }}</span>
+    <span id="SparkCountPositive">{{ SparkCountPositive }}</span>
+    <span id="SparkCountNegative">{{ SparkCountNegative }}</span>
+    <span id="SparkCountNeutral">{{ SparkCountNeutral }}</span>
+    <span id="TextblobCountPositive">{{ TextblobCountPositive }}</span>
+    <span id="TextblobCountNegative">{{ TextblobCountNegative }}</span>
+    <span id="TextblobCountNeutral">{{ TextblobCountNeutral }}</span>
 </div>
 
 <!-- Bootstrap core JavaScript
