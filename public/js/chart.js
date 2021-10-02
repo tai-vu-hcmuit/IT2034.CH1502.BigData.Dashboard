@@ -18,33 +18,23 @@ const dataBarChart = {
     datasets: [{
         label: 'Spark',
         data: [SparkCountPositive, SparkCountNegative, SparkCountNeutral],
-        backgroundColor: [
-            'rgba(255, 45, 132, 0.2)',
-            'rgba(255, 80, 64, 0.2)',
-            'rgba(255, 100, 86, 0.2)',
-        ],
+        backgroundColor: 'rgba(255, 45, 132, 0.5)',
         borderColor: 'rgb(255, 205, 86)',
         borderWidth: 1
     }, {
         label: 'TextBlob',
         data: [TextblobCountPositive, TextblobCountNegative, TextblobCountNeutral],
-        backgroundColor: [
-            'rgba(200, 45, 132, 0.2)',
-            'rgba(200, 80, 64, 0.2)',
-            'rgba(200, 100, 86, 0.2)',
-        ],
-        borderColor: [
-            'rgb(200, 15, 132)',
-            'rgb(200, 15, 64)',
-            'rgb(200, 15, 86)',
-        ],
+        backgroundColor: 'rgba(100, 45, 132, 0.5)',
+        borderColor: 'rgb(200, 15, 86)',
         borderWidth: 1
     }]
 };
 const configBarChart = {
     type: 'bar',
     data: dataBarChart,
+
     options: {
+
         responsive: true,
         plugins: {
             legend: {

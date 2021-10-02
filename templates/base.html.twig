@@ -54,6 +54,15 @@
                     </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">{{ SparkCountPositive + SparkCountNegative + SparkCountNeutral }}</h1>
+                        <h4 class="my-0 font-weight-normal">(From Twitter)</h4>
+                    </div>
+                </div>
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Sentiment analysis</h4>
+                        <h4 class="my-0 font-weight-normal"><small class="text-muted">(Spark streaming)</small></h4>
+                    </div>
+                    <div class="card-body">
                         <ul class="list-unstyled mt-3 mb-4">
                             <li><h3><small class="text-muted">Positive: {{ SparkCountPositive }}</small></h3></li>
                             <li><h3><small class="text-muted">Negative: {{ SparkCountNegative }}</small></h3></li>
@@ -63,15 +72,14 @@
                 </div>
                 <div class="card mb-4 box-shadow">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Popular topics</h4>
+                        <h4 class="my-0 font-weight-normal">Sentiment analysis</h4>
+                        <h4 class="my-0 font-weight-normal"><small class="text-muted">(Textblob)</small></h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">Covid-19</h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li><h3><small class="text-muted">EU election</small></h3></li>
-                            <li><h3><small class="text-muted">Premier league</small></h3></li>
-                            <li><h3><small class="text-muted">Pop stars</small></h3></li>
-                            <li><h3><small class="text-muted">...</small></h3></li>
+                            <li><h3><small class="text-muted">Positive: {{ TextblobCountPositive }}</small></h3></li>
+                            <li><h3><small class="text-muted">Negative: {{ TextblobCountNegative }}</small></h3></li>
+                            <li><h3><small class="text-muted">Neutral: {{ TextblobCountNeutral }}</small></h3></li>
                         </ul>
                     </div>
                 </div>
@@ -110,8 +118,8 @@
             <table class="table .table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">Spark streamming</th>
-                    <th scope="col">Textblod</th>
+                    <th class="col-6">Spark streamming</th>
+                    <th class="col-6">Textblod</th>
                 </tr>
                 </thead>
                 <tbody>
